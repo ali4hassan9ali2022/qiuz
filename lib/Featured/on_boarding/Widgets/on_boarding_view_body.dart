@@ -6,7 +6,7 @@ class OnBoardingViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomPageViewitem();
+    return SizedBox();
   }
 }
 
