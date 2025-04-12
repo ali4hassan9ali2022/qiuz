@@ -11,6 +11,7 @@ class QuizApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       routes: {SplashView.id: (context) => SplashView()},
       initialRoute: SplashView.id,
     );

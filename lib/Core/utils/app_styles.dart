@@ -12,6 +12,14 @@ abstract class AppStyles {
       color: Color(0xff3D003E),
     );
   }
+  static TextStyle styleRegular400(context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 400),
+      fontWeight: FontWeight.w400,
+      fontFamily: "Montserrat",
+      color: Colors.white,
+    );
+  }
   static TextStyle styleSemiBold32(context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 32),
