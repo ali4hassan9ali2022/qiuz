@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:quiz_app/Core/utils/assets.dart';
 import 'package:quiz_app/Featured/on_boarding/Models/item_model.dart';
 
@@ -20,4 +21,5 @@ abstract class Constents {
       subTitle: "Culpa qui officia deserunt mollit anim id est laborum.",
     ),
   ];
+ static PageController pageController = PageController();
 }

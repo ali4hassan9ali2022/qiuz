@@ -7,7 +7,9 @@ class OnBoardingViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return PageView.builder(
+      controller: Constents.pageController,
       itemCount: Constents.items.length,
       itemBuilder: (context, index) {
         return CustomPageViewitem(itemModel: Constents.items[index]);
