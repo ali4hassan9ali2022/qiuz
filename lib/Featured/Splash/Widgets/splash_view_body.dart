@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/Core/Controllers/navigator_controller.dart';
 import 'package:quiz_app/Core/Widgets/custom_button.dart';
 import 'package:quiz_app/Core/utils/app_styles.dart';
+import 'package:quiz_app/Featured/on_boarding/View/on_boarding_view.dart';
 
 class SplashViewBody extends StatelessWidget {
   const SplashViewBody({super.key});
@@ -13,15 +15,23 @@ class SplashViewBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text("Q", style: AppStyles.styleRegular400(context)),
-          CustomButton(
-            borderRadius: 35,
-            color: Colors.white,
-            width: double.infinity,
-            height: 70,
-            child: Center(
-              child: Text(
-                "Get Started",
-                style: AppStyles.styleRegular21(context),
+          GestureDetector(
+            onTap: () {
+              NavigatorController.navigatorPushNamed(
+                context,
+                OnBoardingView.id,
+              );
+            },
+            child: CustomButton(
+              borderRadius: 35,
+              color: Colors.white,
+              width: double.infinity,
+              height: 70,
+              child: Center(
+                child: Text(
+                  "Get Started",
+                  style: AppStyles.styleRegular21(context),
+                ),
               ),
             ),
           ),
