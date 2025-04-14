@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz_app/Core/Controllers/navigator_controller.dart';
 import 'package:quiz_app/Cubit/app_cubit.dart';
 import 'package:quiz_app/Cubit/app_state.dart';
 import 'package:quiz_app/Featured/on_boarding/Widgets/custom_bottom_nav_bar.dart';
@@ -13,11 +14,14 @@ class OnBoardingView extends StatelessWidget {
     var cubit = BlocProvider.of<AppCubit>(context);
     return BlocConsumer<AppCubit, AppState>(
       listener: (context, state) {
-        // TODO: implement listener
+        
       },
       builder: (context, state) {
         return Scaffold(
           bottomNavigationBar: CustomBottomNavBar(
+            onTapSkip: () {
+              // NavigatorController.navigatorPushNamed(context, );
+            },
             position: cubit.currentIndex.toDouble(),
             onTapNext: () {
               if (cubit.currentIndex == cubit.items.length - 1) {

@@ -1,9 +1,8 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quiz_app/Core/utils/app_styles.dart';
 import 'package:quiz_app/Cubit/app_cubit.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:quiz_app/Featured/on_boarding/Widgets/custom_on_boarding_text.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({
@@ -12,13 +11,12 @@ class CustomBottomNavBar extends StatelessWidget {
     required this.onTap,
 
     required this.onTapNext,
-    required this.position,
-    // required this.outputDataDotIndicator,
+    required this.position, required this.onTapSkip,
   });
   final int dotsCount;
   final Function(int) onTap;
-  // final Stream<double> outputDataDotIndicator;
   final VoidCallback onTapNext;
+  final VoidCallback onTapSkip;
   final double position;
   @override
   Widget build(BuildContext context) {
@@ -30,7 +28,7 @@ class CustomBottomNavBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Skip", style: AppStyles.styleRegular15(context)),
+            CustomOnBoardingText(onTapNext: onTapSkip, text: "Skip"),
             DotsIndicator(
               dotsCount: dotsCount,
               onTap: onTap,
@@ -43,9 +41,12 @@ class CustomBottomNavBar extends StatelessWidget {
                 color: Color(0xffE5E5E5),
               ),
             ),
-            GestureDetector(
-              onTap: onTapNext,
-              child: Text("Next", style: AppStyles.styleRegular15(context)),
+            CustomOnBoardingText(
+              text:
+                  cubit.currentIndex == cubit.items.length - 1
+                      ? "Start"
+                      : "Next",
+              onTapNext: onTapNext,
             ),
           ],
         ),
@@ -53,6 +54,8 @@ class CustomBottomNavBar extends StatelessWidget {
     );
   }
 }
+
+
 
 
 
