@@ -6,8 +6,20 @@ class StartViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [Text("Q", style: AppStyles.styleRegular200(context))],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Column(
+        children: [
+          Text("Q", style: AppStyles.styleRegular200(context)),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "Enter your name",
+              style: AppStyles.styleSemiBold18(context),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
