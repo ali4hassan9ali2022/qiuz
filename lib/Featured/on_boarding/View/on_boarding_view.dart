@@ -1,51 +1,43 @@
 import 'package:flutter/material.dart';
-
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz_app/Cubit/app_cubit.dart';
+import 'package:quiz_app/Cubit/app_state.dart';
 import 'package:quiz_app/Featured/on_boarding/Widgets/custom_bottom_nav_bar.dart';
-import 'package:quiz_app/Featured/on_boarding/Widgets/custom_page_view_item.dart';
-import 'package:quiz_app/constents.dart';
+import 'package:quiz_app/Featured/on_boarding/Widgets/on_boarding_view_body.dart';
 
 class OnBoardingView extends StatelessWidget {
   const OnBoardingView({super.key});
   static String id = "OnBoardingView";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: CustomBottomNavBar(
-        onTapNext: () {
-          // if (Constents.currentIndex == Constents.items.length - 1) {
-          // } else {
-          //   Constents.currentIndex = Constents.currentIndex + 1;
-          //   Constents.pageController.nextPage(
-          //     duration: Duration(milliseconds: 500),
-          //     curve: Curves.easeInOut,
-          //   );
-          //   inputData.add(Constents.currentIndex);
-          // }
-        },
+    var cubit = BlocProvider.of<AppCubit>(context);
+    return BlocConsumer<AppCubit, AppState>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        return Scaffold(
+          bottomNavigationBar: CustomBottomNavBar(
+            position: cubit.currentIndex.toDouble(),
+            onTapNext: () {
+              if (cubit.currentIndex == cubit.items.length - 1) {
+              } else {
+                cubit.pageController.nextPage(
+                  duration: Duration(milliseconds: 500),
+                  curve: Curves.easeInOut,
+                );
+              }
+            },
 
-        onTap: (index) {
-          // Constents.currentIndex = index.toDouble();
-          // Constents.pageController.nextPage(
-          //   duration: Duration(milliseconds: 750),
-          //   curve: Curves.easeInOut,
-          // );
-          // inputData.add(Constents.currentIndex);
-        },
+            onTap: (index) {
+              cubit.changeDotIndicator(index);
+            },
 
-        dotsCount: Constents.items.length,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 35),
-        child: PageView.builder(
-          scrollDirection: Axis.horizontal,
-          controller: Constents.pageController,
-          itemCount: Constents.items.length,
-          itemBuilder: (context, index) {
-            return CustomPageViewitem(itemModel: Constents.items[index]);
-          },
-        ),
-      ),
+            dotsCount: cubit.items.length,
+          ),
+          body: OnBoardingViewBody(),
+        );
+      },
     );
   }
 }
