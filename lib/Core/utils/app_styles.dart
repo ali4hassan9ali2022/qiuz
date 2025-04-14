@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/Core/utils/size_config.dart';
 
-
 abstract class AppStyles {
-
   static TextStyle styleRegular21(context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 21),
@@ -12,6 +10,7 @@ abstract class AppStyles {
       color: Color(0xff3D003E),
     );
   }
+
   static TextStyle styleRegular400(context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 400),
@@ -20,6 +19,16 @@ abstract class AppStyles {
       color: Colors.white,
     );
   }
+
+  static TextStyle styleRegular200(context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 200),
+      fontWeight: FontWeight.w400,
+      fontFamily: "Montserrat",
+      color: Color(0xff473F97),
+    );
+  }
+
   static TextStyle styleSemiBold32(context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 32),
@@ -28,6 +37,7 @@ abstract class AppStyles {
       color: Color(0xff3D003E),
     );
   }
+
   static TextStyle styleRegular15(context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 15),
@@ -36,6 +46,7 @@ abstract class AppStyles {
       color: Color(0xff3D003E),
     );
   }
+
   static TextStyle styleSemiBold18(context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 18),
@@ -43,6 +54,7 @@ abstract class AppStyles {
       color: Color(0xff473F97),
     );
   }
+
   static TextStyle styleSemiBold12(context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 12),
@@ -50,6 +62,7 @@ abstract class AppStyles {
       color: Color(0xff473F97),
     );
   }
+
   static TextStyle styleSemiBold20(context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 20),
@@ -58,7 +71,6 @@ abstract class AppStyles {
     );
   }
 }
-
 
 // sacleFactor
 // responsive font size
