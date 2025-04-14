@@ -4,6 +4,7 @@ import 'package:quiz_app/Cubit/app_cubit.dart';
 import 'package:quiz_app/Featured/Splash/Views/splash_view.dart';
 import 'package:quiz_app/Featured/Start/Views/start_view.dart';
 import 'package:quiz_app/Featured/on_boarding/View/on_boarding_view.dart';
+import 'package:quiz_app/Featured/quiz/Views/quiz_view.dart';
 
 void main() {
   runApp(const QuizApp());
@@ -22,6 +23,7 @@ class QuizApp extends StatelessWidget {
           SplashView.id: (context) => SplashView(),
           OnBoardingView.id: (context) => OnBoardingView(),
           StartView.id: (context) => StartView(),
+          QuizView.id: (context) => QuizView(),
         },
         initialRoute: SplashView.id,
       ),

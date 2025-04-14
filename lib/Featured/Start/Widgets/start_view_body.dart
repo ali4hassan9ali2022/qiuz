@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz_app/Core/Controllers/navigator_controller.dart';
 import 'package:quiz_app/Core/Widgets/custom_button.dart';
 import 'package:quiz_app/Core/utils/app_styles.dart';
 import 'package:quiz_app/Cubit/app_cubit.dart';
 import 'package:quiz_app/Cubit/app_state.dart';
 import 'package:quiz_app/Featured/Start/Widgets/custom_text_field.dart';
+import 'package:quiz_app/Featured/quiz/Views/quiz_view.dart';
 
 class StartViewBody extends StatelessWidget {
   const StartViewBody({super.key});
@@ -39,7 +41,9 @@ class StartViewBody extends StatelessWidget {
                 // Spacer(),
                 GestureDetector(
                   onTap: () {
-                    if (cubit.formKey.currentState!.validate()) {}
+                    if (cubit.formKey.currentState!.validate()) {
+                    NavigatorController.navigatorPushNamed(context, QuizView.id, true);
+                    }
                   },
                   child: CustomButton(
                     borderRadius: 20,
