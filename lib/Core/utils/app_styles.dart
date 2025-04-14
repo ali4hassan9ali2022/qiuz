@@ -20,6 +20,14 @@ abstract class AppStyles {
     );
   }
 
+  static TextStyle styleRegular24(context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 24),
+      fontWeight: FontWeight.w400,
+      color: Colors.white,
+    );
+  }
+
   static TextStyle styleRegular200(context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 200),

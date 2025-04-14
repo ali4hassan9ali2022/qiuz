@@ -27,6 +27,7 @@ class AppCubit extends Cubit<AppState> {
   ];
   PageController pageController = PageController();
   GlobalKey<FormState> formKey = GlobalKey();
+  TextEditingController nameController = TextEditingController();
   void lastPageView(int index) {
     currentIndex = index;
     emit(ChangePgaeViewAppState());
