@@ -1,16 +1,21 @@
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_app/Core/utils/app_styles.dart';
+import 'package:quiz_app/constents.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({
     super.key,
     required this.dotsCount,
-    required this.onTap, required this.outputDotIndicator,
+    required this.onTap,
+
+    required this.onTapNext,
+    // required this.outputDataDotIndicator,
   });
   final int dotsCount;
   final Function(int) onTap;
-  final Stream<double> outputDotIndicator; 
+  // final Stream<double> outputDataDotIndicator;
+  final VoidCallback onTapNext;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,24 +26,23 @@ class CustomBottomNavBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("Skip", style: AppStyles.styleRegular15(context)),
-            StreamBuilder<double>(
-              stream: outputDotIndicator,
-              builder: (context, snapshot) {
-                return DotsIndicator(
-                  dotsCount: dotsCount,
-                  position: snapshot.data == null ? 0 : snapshot.data!,
-                  onTap: onTap,
-                  animate: true,
-                  animationDuration: Duration(milliseconds: 750),
-                  decorator: DotsDecorator(
-                    activeColor: Color(0xff3D003E),
-                    color: Color(0xffE5E5E5),
-                    activeSize: Size(12, 12),
-                  ),
-                );
-              }
+            SmoothPageIndicator(
+              controller: Constents.pageController,
+              onDotClicked: onTap,
+              count: Constents.items.length,
+              effect: const ExpandingDotsEffect(
+                dotColor: Colors.grey,
+                dotHeight: 10,
+                dotWidth: 10,
+                spacing: 5,
+                expansionFactor: 4,
+                activeDotColor: Colors.deepOrange,
+              ),
             ),
-            Text("Next", style: AppStyles.styleRegular15(context)),
+            GestureDetector(
+              onTap: onTapNext,
+              child: Text("Next", style: AppStyles.styleRegular15(context)),
+            ),
           ],
         ),
       ),

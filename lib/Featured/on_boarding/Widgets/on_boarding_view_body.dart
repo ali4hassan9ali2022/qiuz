@@ -7,8 +7,8 @@ class OnBoardingViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return PageView.builder(
+      scrollDirection: Axis.horizontal,
       controller: Constents.pageController,
       itemCount: Constents.items.length,
       itemBuilder: (context, index) {

@@ -22,5 +22,5 @@ abstract class Constents {
     ),
   ];
  static PageController pageController = PageController();
- static double currentIndex = 0;
+//  static double currentIndex = 0;
 }
