@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_app/Cubit/app_cubit.dart';
 import 'package:quiz_app/Featured/Splash/Views/splash_view.dart';
+import 'package:quiz_app/Featured/Start/Views/start_view.dart';
 import 'package:quiz_app/Featured/on_boarding/View/on_boarding_view.dart';
 
 void main() {
@@ -20,6 +21,7 @@ class QuizApp extends StatelessWidget {
         routes: {
           SplashView.id: (context) => SplashView(),
           OnBoardingView.id: (context) => OnBoardingView(),
+          StartView.id: (context) => StartView(),
         },
         initialRoute: SplashView.id,
       ),
