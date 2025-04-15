@@ -5,6 +5,7 @@ class QuizView extends StatelessWidget {
   static String id = "QuizView";
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    var name = ModalRoute.of(context)!.settings.arguments ;
+    return Scaffold(appBar: AppBar(title: Text(name.toString())));
   }
 }

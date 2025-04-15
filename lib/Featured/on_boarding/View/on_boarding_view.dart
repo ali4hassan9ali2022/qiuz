@@ -21,12 +21,12 @@ class OnBoardingView extends StatelessWidget {
         return Scaffold(
           bottomNavigationBar: CustomBottomNavBar(
             onTapSkip: () {
-              NavigatorController.navigatorPushNamed(context, StartView.id, false);
+              NavigatorController.navigatorPushNamed(context, StartView.id, false, null);
             },
             position: cubit.currentIndex.toDouble(),
             onTapNext: () {
               if (cubit.currentIndex == cubit.items.length - 1) {
-                NavigatorController.navigatorPushNamed(context, StartView.id, false);
+                NavigatorController.navigatorPushNamed(context, StartView.id, false, null);
               } else {
                 cubit.pageController.nextPage(
                   duration: Duration(milliseconds: 500),

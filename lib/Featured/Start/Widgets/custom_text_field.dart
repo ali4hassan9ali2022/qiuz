@@ -8,13 +8,14 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       validator: (value) {
-        if(value!.isEmpty) {
+        if (value!.isEmpty) {
           return "من فضلك ادخل اسمك";
         } else {
           return null;
         }
       },
       controller: controller,
+      keyboardType: TextInputType.text,
       decoration: InputDecoration(
         border: AppHelper.outlineInputBorder(),
         enabledBorder: AppHelper.outlineInputBorder(),

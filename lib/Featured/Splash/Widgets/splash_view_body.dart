@@ -20,7 +20,8 @@ class SplashViewBody extends StatelessWidget {
               NavigatorController.navigatorPushNamed(
                 context,
                 OnBoardingView.id,
-                false
+                false,
+                null,
               );
             },
             child: CustomButton(

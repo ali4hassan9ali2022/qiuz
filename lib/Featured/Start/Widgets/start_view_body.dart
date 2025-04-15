@@ -42,7 +42,9 @@ class StartViewBody extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     if (cubit.formKey.currentState!.validate()) {
-                    NavigatorController.navigatorPushNamed(context, QuizView.id, true);
+                    NavigatorController.navigatorPushNamed(context, QuizView.id, true,
+                    cubit.nameController.text,
+                    );
                     }
                   },
                   child: CustomButton(
