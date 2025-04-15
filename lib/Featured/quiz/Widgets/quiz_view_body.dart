@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/Featured/quiz/Widgets/custom_circular_indicator.dart';
+import 'package:quiz_app/Featured/quiz/Widgets/question_section.dart';
 
 class QuizViewBody extends StatelessWidget {
   const QuizViewBody({super.key});
@@ -10,11 +10,8 @@ class QuizViewBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         children: [
-          Stack(
-            children: [
-              CustomCircularIndicator(),
-            ],
-          ),
+          SizedBox(height: 88),
+          QuestionSection(),
         ],
       ),
     );

@@ -4,9 +4,9 @@ import 'package:quiz_app/Core/utils/app_styles.dart';
 
 class CustomCircularIndicator extends StatelessWidget {
   const CustomCircularIndicator({
-    super.key,
+    super.key, required this.text,
   });
-
+  final String text;
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
@@ -15,12 +15,13 @@ class CustomCircularIndicator extends StatelessWidget {
       child: CircularPercentIndicator(
         circularStrokeCap: CircularStrokeCap.round,
         radius: 43,
+        restartAnimation: true,
         percent: 1.0,
         backgroundColor: Color(0xffB9B6D7),
         animation: true,
         animationDuration: 60000,
         progressColor: Color(0xff473F97),
-        center: Text("30", style: AppStyles.styleSemiBold32(context)),
+        center: Text(text, style: AppStyles.styleSemiBold32(context)),
       ),
     );
   }
