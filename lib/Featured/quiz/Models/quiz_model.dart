@@ -1,6 +1,6 @@
 class QuizModel {
- final String option;
- final bool isActiv;
+  final String option;
 
-  QuizModel({required this.option, required this.isActiv}); 
+
+  QuizModel({required this.option});
 }

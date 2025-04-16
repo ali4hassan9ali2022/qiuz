@@ -8,10 +8,11 @@ abstract class AppHelper {
       borderRadius: BorderRadius.circular(20),
     );
   }
+
   static List<QuizModel> options = [
-    QuizModel(option: "1986", isActiv: false),
-    QuizModel(option: "1994", isActiv: false),
-    QuizModel(option: "2002", isActiv: false),
-    QuizModel(option: "2010", isActiv: false),
+    QuizModel(option: "1986"),
+    QuizModel(option: "1994"),
+    QuizModel(option: "2002"),
+    QuizModel(option: "2010"),
   ];
 }
