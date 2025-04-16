@@ -1,0 +1,25 @@
+  // Timer? questionTimer;
+  // double remainingPercent = 1.0;
+  // int remainingSeconds = 60;
+  // Timer? uiTimer;
+  // void startTimerForQuestion() {
+  //   cancelTimer();
+  //   remainingPercent = 1.0;
+  //   remainingSeconds = 60;
+  //   uiTimer = Timer.periodic(Duration(seconds: 1), (timer) {
+  //     remainingSeconds--;
+  //     remainingPercent = remainingSeconds / 60;
+  //     emit(UpdateTimerAppState());
+  //     if (remainingSeconds == 0) {
+  //       timer.cancel();
+  //     }
+  //   });
+  //   questionTimer = Timer(Duration(minutes: 1), () {
+  //     goToNextQuestion();
+  //   });
+  // }
+
+  // void cancelTimer() {
+  //   questionTimer?.cancel();
+  //   uiTimer?.cancel();
+  // }
