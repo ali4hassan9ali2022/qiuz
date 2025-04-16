@@ -19,10 +19,10 @@ abstract class AppStyles {
     );
   }
 
-  static TextStyle styleRegular24(context) {
+  static TextStyle styleSemiBold24(context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 24),
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w600,
       color: Colors.white,
     );
   }

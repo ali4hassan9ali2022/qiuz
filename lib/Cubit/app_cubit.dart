@@ -42,9 +42,22 @@ class AppCubit extends Cubit<AppState> {
       curve: Curves.easeInOut,
     );
   }
-  int? isSelected;
+
+  int isSelected = -1;
   void selcetedItem(int index) {
-    isSelected = index ;
+    isSelected = index;
+    changeButton();
     emit(SelcetedItemAppState());
+  }
+
+  bool isNext = false;
+  void changeButton() {
+
+    if (isSelected != -1) {
+      isNext = true;
+    } else {
+      isNext = false;
+    }
+    emit(ChangeButtonItemAppState());
   }
 }
