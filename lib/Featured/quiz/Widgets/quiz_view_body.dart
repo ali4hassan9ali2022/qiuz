@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/Featured/quiz/Widgets/custom_inactiveItem_quiz_view.dart';
 import 'package:quiz_app/Featured/quiz/Widgets/question_section.dart';
 
 class QuizViewBody extends StatelessWidget {
@@ -12,9 +13,11 @@ class QuizViewBody extends StatelessWidget {
         children: [
           SizedBox(height: 88),
           QuestionSection(),
+          Expanded(child: SizedBox()),
+          CustomInactiveItemQuizView(),
+          SizedBox(height: 61),
         ],
       ),
     );
   }
 }
-
