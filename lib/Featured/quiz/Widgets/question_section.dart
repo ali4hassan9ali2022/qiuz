@@ -1,26 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz_app/Core/Helper/app_helper.dart';
+import 'package:quiz_app/Cubit/app_cubit.dart';
+import 'package:quiz_app/Cubit/app_state.dart';
 import 'package:quiz_app/Featured/quiz/Widgets/custom_card.dart';
 import 'package:quiz_app/Featured/quiz/Widgets/custom_circular_indicator.dart';
 
 class QuestionSection extends StatelessWidget {
-  const QuestionSection({
-    super.key,
-  });
+  const QuestionSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var cubit = BlocProvider.of<AppCubit>(context);
     return Stack(
       clipBehavior: Clip.none,
       children: [
         CustomCardQuizView(
-          text:
-              "In what year did the United States \nhost the FIFA World Cup for the first time?",
+          text: AppHelper.options[cubit.listQuestion].question,
         ),
         Positioned(
           right: 0,
           left: 0,
           top: -29,
-          child: CustomCircularIndicator(text: "30"),
+          child: BlocBuilder<AppCubit, AppState>(
+            builder: (context, state) {
+              return CustomCircularIndicator(
+                     onComplete: () {
+                       cubit.goToNextQuestion();
+                     },
+                     duration: 60,
+                    );
+            },
+          ),
         ),
       ],
     );

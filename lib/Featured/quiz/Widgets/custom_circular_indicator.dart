@@ -4,25 +4,34 @@ import 'package:quiz_app/Core/utils/app_styles.dart';
 
 class CustomCircularIndicator extends StatelessWidget {
   const CustomCircularIndicator({
-    super.key, required this.text,
+    super.key, required this.duration, required this.onComplete,
   });
-  final String text;
+ 
+  final int duration;
+  final VoidCallback onComplete;
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      backgroundColor: Colors.white,
-      radius: 43,
-      child: CircularPercentIndicator(
-        circularStrokeCap: CircularStrokeCap.round,
+    return TweenAnimationBuilder(
+      duration: Duration(seconds: duration),
+      tween: Tween(begin: 1.0, end: 0.0),
+      onEnd: onComplete,
+      builder: (context, value, child) {
+        int secondLeft = (value * duration).ceil();
+        return  CircleAvatar(
+        backgroundColor: Colors.white,
         radius: 43,
-        restartAnimation: true,
-        percent: 1.0,
-        backgroundColor: Color(0xffB9B6D7),
-        animation: true,
-        animationDuration: 60000,
-        progressColor: Color(0xff473F97),
-        center: Text(text, style: AppStyles.styleSemiBold32(context)),
-      ),
+        child: CircularPercentIndicator(
+          circularStrokeCap: CircularStrokeCap.round,
+          radius: 43,
+      
+          percent: value.clamp(0.0, 1.0),
+          backgroundColor: Color(0xffB9B6D7),
+          animation: false,
+          progressColor: Color(0xff473F97),
+          center: Text("$secondLeft s", style: AppStyles.styleSemiBold32(context)),
+        ),
+      );
+      },
     );
   }
 }

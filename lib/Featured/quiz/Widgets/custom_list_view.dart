@@ -26,11 +26,11 @@ class CustomListView extends StatelessWidget {
                           : cubit.isSelected == index
                           ? true
                           : false,
-                  quizModel: AppHelper.options[index],
+                  option: AppHelper.options[cubit.listQuestion].option[index],
                 ),
               ),
           separatorBuilder: (context, index) => SizedBox(height: 25),
-          itemCount: AppHelper.options.length,
+          itemCount: AppHelper.options[cubit.listQuestion].option.length,
         );
       },
     );

@@ -10,9 +10,55 @@ abstract class AppHelper {
   }
 
   static List<QuizModel> options = [
-    QuizModel(option: "1986"),
-    QuizModel(option: "1994"),
-    QuizModel(option: "2002"),
-    QuizModel(option: "2010"),
+    QuizModel(
+      option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
+      question: "ما هى عاصمة مصر",
+      correctAnswer: "القاهرة",
+    ),
+    QuizModel(
+      option: ["الزمالك", "الترجى", "الوداد", "الاهلى"],
+      question: "ما هو افضل نادى فى القارة السمراء",
+      correctAnswer: "القاهرة",
+    ),
+    QuizModel(
+      option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
+      question: "ما هى عاصمة مصر",
+      correctAnswer: "القاهرة",
+    ),
+    QuizModel(
+      option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
+      question: "ما هى عاصمة مصر",
+      correctAnswer: "القاهرة",
+    ),
+    QuizModel(
+      option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
+      question: "ما هى عاصمة مصر",
+      correctAnswer: "القاهرة",
+    ),
+    QuizModel(
+      option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
+      question: "ما هى عاصمة مصر",
+      correctAnswer: "القاهرة",
+    ),
+    QuizModel(
+      option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
+      question: "ما هى عاصمة مصر",
+      correctAnswer: "القاهرة",
+    ),
+    QuizModel(
+      option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
+      question: "ما هى عاصمة مصر",
+      correctAnswer: "القاهرة",
+    ),
+    QuizModel(
+      option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
+      question: "ما هى عاصمة مصر",
+      correctAnswer: "القاهرة",
+    ),
+    QuizModel(
+      option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
+      question: "ما هى عاصمة مصر",
+      correctAnswer: "القاهرة",
+    ),
   ];
 }
