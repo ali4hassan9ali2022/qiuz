@@ -5,6 +5,11 @@ class AnswerView extends StatelessWidget {
 static String id = "AnswerView";
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    Map<String, dynamic> info = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("$info"),
+      ),
+    );
   }
 }

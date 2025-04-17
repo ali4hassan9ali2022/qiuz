@@ -13,6 +13,7 @@ class QuizViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String name = ModalRoute.of(context)!.settings.arguments as String;
     var cubit = BlocProvider.of<AppCubit>(context);
     return BlocBuilder<AppCubit, AppState>(
       builder: (context, state) {
@@ -38,7 +39,15 @@ class QuizViewBody extends StatelessWidget {
                                 //   false,
                                 //   null,
                                 // );
-                                Navigator.pushNamedAndRemoveUntil(context, AnswerView.id, (route) => false,);
+                                Navigator.pushNamedAndRemoveUntil(
+                                  context,
+                                  AnswerView.id,
+                                  (route) => false,
+                                  arguments: {
+                                    "Name": name,
+                                    "Answers": cubit.selectedAnswers,
+                                  },
+                                );
                               } else {
                                 cubit.goToNextQuestion();
                               }

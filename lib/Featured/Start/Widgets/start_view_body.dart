@@ -47,7 +47,7 @@ class StartViewBody extends StatelessWidget {
                       //   true,
                       //   cubit.nameController.text,
                       // );
-                      Navigator.pushNamedAndRemoveUntil(context, QuizView.id, (route) => true,);
+                      Navigator.pushNamedAndRemoveUntil(context, QuizView.id, (route) => true, arguments: cubit.nameController.text);
                     }
                   },
                   child: CustomButton(
