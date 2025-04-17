@@ -4,6 +4,7 @@ import 'package:quiz_app/Core/Widgets/custom_button.dart';
 import 'package:quiz_app/Core/utils/app_styles.dart';
 import 'package:quiz_app/Cubit/app_cubit.dart';
 import 'package:quiz_app/Cubit/app_state.dart';
+import 'package:quiz_app/Featured/answer/Views/answer_view.dart';
 import 'package:quiz_app/Featured/quiz/Widgets/custom_list_view.dart';
 import 'package:quiz_app/Featured/quiz/Widgets/question_section.dart';
 
@@ -31,6 +32,13 @@ class QuizViewBody extends StatelessWidget {
                         cubit.isNext
                             ? () {
                               if (cubit.isLastQuestion) {
+                                // NavigatorController.navigatorPushNamed(
+                                //   context,
+                                //   AnswerView.id,
+                                //   false,
+                                //   null,
+                                // );
+                                Navigator.pushNamedAndRemoveUntil(context, AnswerView.id, (route) => false,);
                               } else {
                                 cubit.goToNextQuestion();
                               }

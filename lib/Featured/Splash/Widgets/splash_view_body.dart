@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/Core/Controllers/navigator_controller.dart';
 import 'package:quiz_app/Core/Widgets/custom_button.dart';
 import 'package:quiz_app/Core/utils/app_styles.dart';
 import 'package:quiz_app/Featured/on_boarding/View/on_boarding_view.dart';
@@ -17,12 +16,13 @@ class SplashViewBody extends StatelessWidget {
           Text("Q", style: AppStyles.styleRegular400(context)),
           GestureDetector(
             onTap: () {
-              NavigatorController.navigatorPushNamed(
-                context,
-                OnBoardingView.id,
-                false,
-                null,
-              );
+              // NavigatorController.navigatorPushNamed(
+              //   context,
+              //   OnBoardingView.id,
+              //   false,
+              //   null,
+              // );
+              Navigator.pushNamedAndRemoveUntil(context, OnBoardingView.id, (route) => false,);
             },
             child: CustomButton(
               borderRadius: 35,

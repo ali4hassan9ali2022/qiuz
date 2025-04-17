@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quiz_app/Core/Controllers/navigator_controller.dart';
+
 import 'package:quiz_app/Cubit/app_cubit.dart';
 import 'package:quiz_app/Cubit/app_state.dart';
 import 'package:quiz_app/Featured/Start/Views/start_view.dart';
@@ -21,12 +21,14 @@ class OnBoardingView extends StatelessWidget {
         return Scaffold(
           bottomNavigationBar: CustomBottomNavBar(
             onTapSkip: () {
-              NavigatorController.navigatorPushNamed(context, StartView.id, false, null);
+              // NavigatorController.navigatorPushNamed(context, StartView.id, false, null);
+              Navigator.pushNamedAndRemoveUntil(context, StartView.id, (route) => false,);
             },
             position: cubit.currentIndex.toDouble(),
             onTapNext: () {
               if (cubit.currentIndex == cubit.items.length - 1) {
-                NavigatorController.navigatorPushNamed(context, StartView.id, false, null);
+                // NavigatorController.navigatorPushNamed(context, StartView.id, false, null);
+                Navigator.pushNamedAndRemoveUntil(context, StartView.id, (route) => false,);
               } else {
                 cubit.pageController.nextPage(
                   duration: Duration(milliseconds: 500),

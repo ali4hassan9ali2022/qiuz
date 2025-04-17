@@ -1,10 +1,8 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:quiz_app/Core/utils/app_styles.dart';
-import 'package:quiz_app/Cubit/app_cubit.dart';
 
 class CustomCircularIndicator extends StatefulWidget {
   const CustomCircularIndicator({
@@ -43,7 +41,7 @@ widget.onComplete();
   }
   @override
   Widget build(BuildContext context) {
-    var cubit = BlocProvider.of<AppCubit>(context);
+    // var cubit = BlocProvider.of<AppCubit>(context);
     return CircleAvatar(
           backgroundColor: Colors.white,
           radius: 43,

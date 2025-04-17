@@ -28,6 +28,8 @@ class AppCubit extends Cubit<AppState> {
       subTitle: "Culpa qui officia deserunt mollit anim id est laborum.",
     ),
   ];
+
+  List<int> selectedAnswers = [];
   PageController pageController = PageController();
   GlobalKey<FormState> formKey = GlobalKey();
   TextEditingController nameController = TextEditingController();
@@ -50,6 +52,11 @@ class AppCubit extends Cubit<AppState> {
   void selcetedItem(int index) {
     isSelected = index;
     isNext = true;
+    if (selectedAnswers.length > currentIndex) {
+      selectedAnswers[currentIndex] = index;
+    } else {
+      selectedAnswers.add(index);
+    }
     changeButton();
     emit(SelcetedItemAppState());
     // Future.delayed(Duration(seconds: 1), () {

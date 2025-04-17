@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quiz_app/Core/Controllers/navigator_controller.dart';
 import 'package:quiz_app/Core/Widgets/custom_button.dart';
 import 'package:quiz_app/Core/utils/app_styles.dart';
 import 'package:quiz_app/Cubit/app_cubit.dart';
@@ -42,12 +41,13 @@ class StartViewBody extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     if (cubit.formKey.currentState!.validate()) {
-                      NavigatorController.navigatorPushNamed(
-                        context,
-                        QuizView.id,
-                        true,
-                        cubit.nameController.text,
-                      );
+                      // NavigatorController.navigatorPushNamed(
+                      //   context,
+                      //   QuizView.id,
+                      //   true,
+                      //   cubit.nameController.text,
+                      // );
+                      Navigator.pushNamedAndRemoveUntil(context, QuizView.id, (route) => true,);
                     }
                   },
                   child: CustomButton(
