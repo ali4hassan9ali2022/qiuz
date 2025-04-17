@@ -25,40 +25,40 @@ abstract class AppHelper {
       question: "ما هى عاصمة مصر",
       correctAnswer: "القاهرة",
     ),
-    QuizModel(
-      option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
-      question: "ما هى عاصمة مصر",
-      correctAnswer: "القاهرة",
-    ),
-    QuizModel(
-      option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
-      question: "ما هى عاصمة مصر",
-      correctAnswer: "القاهرة",
-    ),
-    QuizModel(
-      option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
-      question: "ما هى عاصمة مصر",
-      correctAnswer: "القاهرة",
-    ),
-    QuizModel(
-      option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
-      question: "ما هى عاصمة مصر",
-      correctAnswer: "القاهرة",
-    ),
-    QuizModel(
-      option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
-      question: "ما هى عاصمة مصر",
-      correctAnswer: "القاهرة",
-    ),
-    QuizModel(
-      option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
-      question: "ما هى عاصمة مصر",
-      correctAnswer: "القاهرة",
-    ),
-    QuizModel(
-      option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
-      question: "ما هى عاصمة مصر",
-      correctAnswer: "القاهرة",
-    ),
+    // QuizModel(
+    //   option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
+    //   question: "ما هى عاصمة مصر",
+    //   correctAnswer: "القاهرة",
+    // ),
+    // QuizModel(
+    //   option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
+    //   question: "ما هى عاصمة مصر",
+    //   correctAnswer: "القاهرة",
+    // ),
+    // QuizModel(
+    //   option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
+    //   question: "ما هى عاصمة مصر",
+    //   correctAnswer: "القاهرة",
+    // ),
+    // QuizModel(
+    //   option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
+    //   question: "ما هى عاصمة مصر",
+    //   correctAnswer: "القاهرة",
+    // ),
+    // QuizModel(
+    //   option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
+    //   question: "ما هى عاصمة مصر",
+    //   correctAnswer: "القاهرة",
+    // ),
+    // QuizModel(
+    //   option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
+    //   question: "ما هى عاصمة مصر",
+    //   correctAnswer: "القاهرة",
+    // ),
+    // QuizModel(
+    //   option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
+    //   question: "ما هى عاصمة مصر",
+    //   correctAnswer: "القاهرة",
+    // ),
   ];
 }

@@ -1,11 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quiz_app/Core/Helper/app_helper.dart';
 import 'package:quiz_app/Core/Widgets/custom_button.dart';
 import 'package:quiz_app/Core/utils/app_styles.dart';
-import 'package:quiz_app/Cubit/app_cubit.dart';
-import 'package:quiz_app/Featured/quiz/Models/quiz_model.dart';
 
 class CustomActiveItemQuizView extends StatelessWidget {
   const CustomActiveItemQuizView({super.key, required this.option});
@@ -13,7 +9,7 @@ class CustomActiveItemQuizView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var cubit = BlocProvider.of<AppCubit>(context);
+    // var cubit = BlocProvider.of<AppCubit>(context);
     return CustomButton(
       borderRadius: 20,
       color: Color(0xffCDCDE1),
@@ -24,10 +20,7 @@ class CustomActiveItemQuizView extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 30),
-            child: Text(
-            option,
-              style: AppStyles.styleSemiBold20(context),
-            ),
+            child: Text(option, style: AppStyles.styleSemiBold20(context)),
           ),
 
           Padding(
@@ -48,7 +41,7 @@ class CustomINActiveItemQuizView extends StatelessWidget {
   final String option;
   @override
   Widget build(BuildContext context) {
-    var cubit = BlocProvider.of<AppCubit>(context);
+    // var cubit = BlocProvider.of<AppCubit>(context);
     return CustomButton(
       borderRadius: 20,
       color: Color(0xffffffff),
@@ -59,10 +52,7 @@ class CustomINActiveItemQuizView extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 30),
-            child: Text(
-              option,
-              style: AppStyles.styleSemiBold20(context),
-            ),
+            child: Text(option, style: AppStyles.styleSemiBold20(context)),
           ),
 
           Padding(

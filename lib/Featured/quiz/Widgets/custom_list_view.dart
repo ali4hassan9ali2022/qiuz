@@ -20,17 +20,12 @@ class CustomListView extends StatelessWidget {
                   cubit.selcetedItem(index);
                 },
                 child: CustomitemQuizView(
-                  isSelected:
-                      cubit.isSelected == null
-                          ? false
-                          : cubit.isSelected == index
-                          ? true
-                          : false,
-                  option: AppHelper.options[cubit.listQuestion].option[index],
+                  isSelected: cubit.isSelected == index,
+                  option: AppHelper.options[cubit.currentIndex].option[index],
                 ),
               ),
           separatorBuilder: (context, index) => SizedBox(height: 25),
-          itemCount: AppHelper.options[cubit.listQuestion].option.length,
+          itemCount: AppHelper.options[cubit.currentIndex].option.length,
         );
       },
     );

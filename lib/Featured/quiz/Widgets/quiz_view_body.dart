@@ -27,7 +27,15 @@ class QuizViewBody extends StatelessWidget {
               BlocBuilder<AppCubit, AppState>(
                 builder: (context, state) {
                   return GestureDetector(
-                    onTap: cubit.isNext ? () {} : null,
+                    onTap:
+                        cubit.isNext
+                            ? () {
+                              if (cubit.isLastQuestion) {
+                              } else {
+                                cubit.goToNextQuestion();
+                              }
+                            }
+                            : null,
                     child: CustomButton(
                       borderRadius: 20,
                       color: cubit.isNext ? Color(0xff473F97) : Colors.grey,
@@ -35,7 +43,7 @@ class QuizViewBody extends StatelessWidget {
                       height: 59,
                       child: Center(
                         child: Text(
-                          "Next",
+                          cubit.isLastQuestion ? "Finish Quiz" : "Next",
                           style: AppStyles.styleSemiBold24(context),
                         ),
                       ),

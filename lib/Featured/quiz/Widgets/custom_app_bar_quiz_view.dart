@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_app/Core/Helper/app_helper.dart';
 import 'package:quiz_app/Core/utils/app_styles.dart';
 import 'package:quiz_app/Cubit/app_cubit.dart';
+import 'package:quiz_app/Cubit/app_state.dart';
 
 class CustomAppBarQuizView extends StatelessWidget
     implements PreferredSizeWidget {
@@ -28,9 +29,13 @@ class CustomAppBarQuizView extends StatelessWidget
           ),
         ),
       ),
-      title: Text(
-        "${cubit.currentIndex+1}/${AppHelper.options.length}",
-        style: AppStyles.styleSemiBold18(context),
+      title: BlocBuilder<AppCubit, AppState>(
+        builder: (context, state) {
+          return Text(
+            "${cubit.currentIndex + 1}/${AppHelper.options.length}",
+            style: AppStyles.styleSemiBold18(context),
+          );
+        },
       ),
     );
   }

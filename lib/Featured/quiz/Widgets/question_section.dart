@@ -12,28 +12,31 @@ class QuestionSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<AppCubit>(context);
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        CustomCardQuizView(
-          text: AppHelper.options[cubit.listQuestion].question,
-        ),
-        Positioned(
-          right: 0,
-          left: 0,
-          top: -29,
-          child: BlocBuilder<AppCubit, AppState>(
-            builder: (context, state) {
-              return CustomCircularIndicator(
-                     onComplete: () {
-                       cubit.goToNextQuestion();
-                     },
-                     duration: 60,
-                    );
-            },
-          ),
-        ),
-      ],
+    return BlocBuilder<AppCubit, AppState>(
+      builder: (context, state) {
+        return Stack(
+          clipBehavior: Clip.none,
+          children: [
+            CustomCardQuizView(
+              text: AppHelper.options[cubit.currentIndex].question,
+            ),
+            if(cubit.showTimer) 
+            Positioned(
+              right: 0,
+              left: 0,
+              top: -29,
+              child: CustomCircularIndicator(
+                onComplete: () {
+                  if (!cubit.isLastQuestion) {
+                    cubit.goToNextQuestion();
+                  }
+                },
+                duration: 60,
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

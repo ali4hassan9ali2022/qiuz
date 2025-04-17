@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_app/Core/Helper/app_helper.dart';
@@ -10,8 +8,8 @@ import 'package:quiz_app/Featured/on_boarding/Models/item_model.dart';
 class AppCubit extends Cubit<AppState> {
   AppCubit() : super(InitialAppState());
   int currentIndex = 0;
-  int listQuestion = 1;
-
+  // int listQuestion = 0;
+  bool isLastQuestion = false;
   List<ItemModel> items = [
     ItemModel(
       image: Assets.imagesOnboardingImage3,
@@ -51,53 +49,42 @@ class AppCubit extends Cubit<AppState> {
   int isSelected = -1;
   void selcetedItem(int index) {
     isSelected = index;
+    isNext = true;
     changeButton();
     emit(SelcetedItemAppState());
+    // Future.delayed(Duration(seconds: 1), () {
+    //   if(!isLastQuestion) {
+    //     goToNextQuestion();
+    //   }
+    // });
   }
 
   bool isNext = false;
+  bool showTimer = true;
   void changeButton() {
-    if (isSelected != -1) {
-      isNext = true;
-    } else {
-      isNext = false;
-    }
+    // if (isSelected != -1) {
+    //   isNext = true;
+    // } else {
+    //   isNext = false;
+    // }
+    isNext = isSelected != -1;
     emit(ChangeButtonItemAppState());
   }
 
-  // Timer? questionTimer;
-  // double remainingPercent = 1.0;
-  // int remainingSeconds = 60;
-  // Timer? uiTimer;
-  // void startTimerForQuestion() {
-  //   cancelTimer();
-  //   remainingPercent = 1.0;
-  //   remainingSeconds = 60;
-  //   uiTimer = Timer.periodic(Duration(seconds: 1), (timer) {
-  //     remainingSeconds--;
-  //     remainingPercent = remainingSeconds / 60;
-  //     emit(UpdateTimerAppState());
-  //     if (remainingSeconds == 0) {
-  //       timer.cancel();
-  //     }
-  //   });
-  //   questionTimer = Timer(Duration(minutes: 1), () {
-  //     goToNextQuestion();
-  //   });
-  // }
-
-  // void cancelTimer() {
-  //   questionTimer?.cancel();
-  //   uiTimer?.cancel();
-  // }
-
   void goToNextQuestion() {
-    if (currentIndex < AppHelper.options.length - 1) {
+    if (currentIndex < AppHelper.options.length - 1 && isSelected != -1) {
       currentIndex++;
       isSelected = -1;
       isNext = false;
+      isLastQuestion = currentIndex == AppHelper.options.length - 1;
+      showTimer = false;
+      Future.delayed(Duration(milliseconds: 100), () {
+        showTimer = true;
+        emit(ResetTimerAppState());
+      });
       emit(NextQuestionAppState());
     } else {
+      isLastQuestion = true;
       emit(FinishQuestionAppState());
     }
   }
