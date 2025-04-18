@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/Core/utils/app_styles.dart';
 import 'package:quiz_app/Featured/answer/Widgets/custom_info_student.dart';
 import 'package:quiz_app/Featured/answer/Widgets/custom_question_number.dart';
+import 'package:quiz_app/Featured/answer/Widgets/custom_true_answer_item.dart';
 
 class AnswerViewBody extends StatelessWidget {
   const AnswerViewBody({super.key});
@@ -9,19 +9,18 @@ class AnswerViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 39),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: [
+          SizedBox(height: 39),
           CustomInfoStudent(),
           SizedBox(height: 23),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomQuestionNumber(),
-              // Container(
-              //   height: 220,
-              //   width: double.infinity,
-              //   decoration: BoxDecoration(color: Color(0xff35A906)),
-              // ),
+              SizedBox(width: 10),
+              CustomTrueAnsweritem(),
             ],
           ),
         ],
@@ -29,4 +28,3 @@ class AnswerViewBody extends StatelessWidget {
     );
   }
 }
-
