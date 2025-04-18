@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/Core/utils/app_styles.dart';
 
-class CustomGrade extends StatelessWidget {
-  const CustomGrade({
-    super.key,
-  });
+class CustomInfoStudent extends StatelessWidget {
+  const CustomInfoStudent({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Map<String, dynamic> info =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     return AspectRatio(
       aspectRatio: 383 / 107,
       child: Container(
@@ -20,19 +20,17 @@ class CustomGrade extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Name: Ali",
-              style: AppStyles.styleRegular21(context).copyWith(
-                fontWeight: FontWeight.w700,
-                color: Color(0xff473F97),
-              ),
+              "Name: ${info["Name"]}",
+              style: AppStyles.styleRegular21(
+                context,
+              ).copyWith(fontWeight: FontWeight.w700, color: Color(0xff473F97)),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 5),
             Text(
               "Grade:       3     /       5",
-              style: AppStyles.styleRegular21(context).copyWith(
-                fontWeight: FontWeight.w700,
-                color: Color(0xff473F97),
-              ),
+              style: AppStyles.styleRegular21(
+                context,
+              ).copyWith(fontWeight: FontWeight.w700, color: Color(0xff473F97)),
             ),
           ],
         ),

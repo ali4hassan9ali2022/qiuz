@@ -6,16 +6,6 @@ class AnswerView extends StatelessWidget {
   static String id = "AnswerView";
   @override
   Widget build(BuildContext context) {
-    var info = ModalRoute.of(context)!.settings.arguments;
-    return Scaffold(
-      backgroundColor: Color(0xff473F97),
-      appBar: AppBar(
-        titleTextStyle: TextStyle(color: Colors.white),
-        title: Text("$info"),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      body: AnswerViewBody(),
-    );
+    return Scaffold(backgroundColor: Color(0xff473F97), body: AnswerViewBody());
   }
 }
