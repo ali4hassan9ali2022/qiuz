@@ -15,6 +15,7 @@ class QuizViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     String name = ModalRoute.of(context)!.settings.arguments as String;
     var cubit = BlocProvider.of<AppCubit>(context);
+    
     return BlocBuilder<AppCubit, AppState>(
       builder: (context, state) {
         return Padding(

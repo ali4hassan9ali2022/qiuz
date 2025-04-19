@@ -13,52 +13,19 @@ abstract class AppHelper {
     QuizModel(
       option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
       question: "ما هى عاصمة مصر",
-      correctAnswer: "القاهرة",
+      correctAnswer: 2,
     ),
     QuizModel(
       option: ["الزمالك", "الترجى", "الوداد", "الاهلى"],
       question: "ما هو افضل نادى فى القارة السمراء",
-      correctAnswer: "القاهرة",
+      correctAnswer: 3,
     ),
     QuizModel(
       option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
       question: "ما هى عاصمة مصر",
-      correctAnswer: "القاهرة",
+      correctAnswer: 2,
     ),
-    // QuizModel(
-    //   option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
-    //   question: "ما هى عاصمة مصر",
-    //   correctAnswer: "القاهرة",
-    // ),
-    // QuizModel(
-    //   option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
-    //   question: "ما هى عاصمة مصر",
-    //   correctAnswer: "القاهرة",
-    // ),
-    // QuizModel(
-    //   option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
-    //   question: "ما هى عاصمة مصر",
-    //   correctAnswer: "القاهرة",
-    // ),
-    // QuizModel(
-    //   option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
-    //   question: "ما هى عاصمة مصر",
-    //   correctAnswer: "القاهرة",
-    // ),
-    // QuizModel(
-    //   option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
-    //   question: "ما هى عاصمة مصر",
-    //   correctAnswer: "القاهرة",
-    // ),
-    // QuizModel(
-    //   option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
-    //   question: "ما هى عاصمة مصر",
-    //   correctAnswer: "القاهرة",
-    // ),
-    // QuizModel(
-    //   option: ["اسكندرية", "المنيا", "القاهرة", "أسوان"],
-    //   question: "ما هى عاصمة مصر",
-    //   correctAnswer: "القاهرة",
-    // ),
   ];
+
+
 }
