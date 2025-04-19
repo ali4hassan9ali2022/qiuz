@@ -1,20 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:quiz_app/Core/Helper/app_helper.dart';
 import 'package:quiz_app/Core/Widgets/custom_button.dart';
 import 'package:quiz_app/Core/utils/app_styles.dart';
 
 class CustomInActiveCardAnswer extends StatelessWidget {
-  const CustomInActiveCardAnswer({super.key, required this.selectedNumberIndex, required this.selectedAnswerIndex, required this.userAnswerIndex});
+  const CustomInActiveCardAnswer({
+    super.key,
+    required this.selectedNumberIndex,
+    required this.question,
+    required this.corrextAnswerText,
+    required this.userAnswerText,
+  });
   final int selectedNumberIndex;
-  final int selectedAnswerIndex;
-  final int userAnswerIndex;
+
+  // final int selectedAnswerIndex;
+  // final int userAnswerIndex;
+  final String question;
+  final String corrextAnswerText;
+  final String userAnswerText;
   @override
   Widget build(BuildContext context) {
-    final quiz = AppHelper.options[selectedAnswerIndex];
-    final correctIndex = quiz.correctAnswer;
-    final userAnswer = quiz.option[userAnswerIndex];
-    final correctAnswer = quiz.option[correctIndex];
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -65,7 +70,7 @@ class CustomInActiveCardAnswer extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 12, left: 12, right: 12),
                   child: Text(
                     textAlign: TextAlign.center,
-                    quiz.question,
+                    question,
                     style: AppStyles.styleSemiBold18(
                       context,
                     ).copyWith(color: Colors.white),
@@ -93,7 +98,7 @@ class CustomInActiveCardAnswer extends StatelessWidget {
                         Expanded(
                           child: Text(
                             textAlign: TextAlign.center,
-                            correctAnswer,
+                            corrextAnswerText,
                             style: AppStyles.styleSemiBold20(context),
                           ),
                         ),
@@ -120,7 +125,7 @@ class CustomInActiveCardAnswer extends StatelessWidget {
                         Expanded(
                           child: Text(
                             textAlign: TextAlign.center,
-                           userAnswer ,
+                            userAnswerText,
                             style: AppStyles.styleSemiBold20(context),
                           ),
                         ),

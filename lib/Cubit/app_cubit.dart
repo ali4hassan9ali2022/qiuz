@@ -79,7 +79,7 @@ class AppCubit extends Cubit<AppState> {
   }
 
   void goToNextQuestion() {
-    if (currentIndex < AppHelper.options.length - 1 && isSelected != -1) {
+    if (currentIndex < AppHelper.options.length - 1) {
       currentIndex++;
       isSelected = -1;
       isNext = false;

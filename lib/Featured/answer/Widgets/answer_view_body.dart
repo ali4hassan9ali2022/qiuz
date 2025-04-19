@@ -31,17 +31,22 @@ class AnswerViewBody extends StatelessWidget {
                 final quiz = AppHelper.options[index];
                 final userInswerIndex = selctedAnswers[index];
                 final correctInswerIndex = quiz.correctAnswer;
+                final selctedIndex = selctedAnswers[index];
                 final isCorrect = userInswerIndex == correctInswerIndex;
                 return isCorrect
                     ? CustomActiveCardAnswer(
                       selectedAnswerIndex: index,
                       selectedNumberIndex: index + 1,
-                      userAnswerIndex: userInswerIndex,
+                      userAnswerIndex: correctInswerIndex,
                     )
                     : CustomInActiveCardAnswer(
+                      question: quiz.question,
                       selectedNumberIndex: index + 1,
-                      selectedAnswerIndex: index ,
-                      userAnswerIndex: userInswerIndex,
+                      corrextAnswerText: quiz.option[quiz.correctAnswer],
+                      userAnswerText:
+                          selctedIndex == -1
+                              ? "User not choose"
+                              : quiz.option[selctedIndex],
                     );
               },
               separatorBuilder: (context, index) => SizedBox(height: 20),
@@ -51,7 +56,6 @@ class AnswerViewBody extends StatelessWidget {
         ],
       ),
     );
-    
   }
 
   int calculateCorrextAnser(context) {
@@ -59,10 +63,10 @@ class AnswerViewBody extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     List<int> selctedAnswers = info["Answers"];
     int corrext = 0;
-    for(int i = 0; i <selctedAnswers.length; i++) {
+    for (int i = 0; i < selctedAnswers.length; i++) {
       final quiz = AppHelper.options[i];
       if (selctedAnswers[i] == quiz.correctAnswer) {
-        corrext ++;
+        corrext++;
       }
     }
     return corrext;

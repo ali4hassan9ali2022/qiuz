@@ -19,52 +19,58 @@ class StartViewBody extends StatelessWidget {
         builder: (context, state) {
           return Form(
             key: cubit.formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text("Q", style: AppStyles.styleRegular200(context)),
-                // SizedBox(),
-                Column(
+            child: SafeArea(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "Enter your name",
-                        style: AppStyles.styleSemiBold18(context),
+                    Text("Q", style: AppStyles.styleRegular200(context)),
+
+                    SizedBox(height: 100),
+                    Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Enter your name",
+                            style: AppStyles.styleSemiBold18(context),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        CustomTextField(controller: cubit.nameController),
+                      ],
+                    ),
+                    // Spacer(),
+                    SizedBox(height: 150),
+                    GestureDetector(
+                      onTap: () {
+                        if (cubit.formKey.currentState!.validate()) {
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            QuizView.id,
+                            (route) => true,
+                            arguments: cubit.nameController.text,
+                          );
+                        }
+                      },
+
+                      child: CustomButton(
+                        borderRadius: 20,
+                        color: Color(0xff473F97),
+                        width: double.infinity,
+                        height: 59,
+                        child: Center(
+                          child: Text(
+                            "Start",
+                            style: AppStyles.styleSemiBold24(context),
+                          ),
+                        ),
                       ),
                     ),
-                    SizedBox(height: 10),
-                    CustomTextField(controller: cubit.nameController),
+                    // SizedBox(height: 101),
                   ],
                 ),
-                // Spacer(),
-                GestureDetector(
-                  onTap: () {
-                    if (cubit.formKey.currentState!.validate()) {
-                      // NavigatorController.navigatorPushNamed(
-                      //   context,
-                      //   QuizView.id,
-                      //   true,
-                      //   cubit.nameController.text,
-                      // );
-                      Navigator.pushNamedAndRemoveUntil(context, QuizView.id, (route) => true, arguments: cubit.nameController.text);
-                    }
-                  },
-                  child: CustomButton(
-                    borderRadius: 20,
-                    color: Color(0xff473F97),
-                    width: double.infinity,
-                    height: 59,
-                    child: Center(
-                      child: Text(
-                        "Start",
-                        style: AppStyles.styleSemiBold24(context),
-                      ),
-                    ),
-                  ),
-                ),
-                // SizedBox(height: 101),
-              ],
+              ),
             ),
           );
         },

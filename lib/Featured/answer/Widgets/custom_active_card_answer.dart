@@ -17,7 +17,6 @@ class CustomActiveCardAnswer extends StatelessWidget {
   Widget build(BuildContext context) {
     final quiz = AppHelper.options[selectedAnswerIndex];
     final correctIndex = quiz.correctAnswer;
-    // final userAnswer = quiz.option[userAnswerIndex];
     final correctAnswer = quiz.option[correctIndex];
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,7 +97,8 @@ class CustomActiveCardAnswer extends StatelessWidget {
                           child: Text(
                             textAlign: TextAlign.center,
 
-                          correctAnswer,
+                         correctAnswer
+,
                             style: AppStyles.styleSemiBold20(context),
                           ),
                         ),

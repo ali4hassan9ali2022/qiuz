@@ -20,20 +20,18 @@ class QuestionSection extends StatelessWidget {
             CustomCardQuizView(
               text: AppHelper.options[cubit.currentIndex].question,
             ),
-            if(cubit.showTimer) 
-            Positioned(
-              right: 0,
-              left: 0,
-              top: -29,
-              child: CustomCircularIndicator(
-                onComplete: () {
-                  if (!cubit.isLastQuestion) {
+            if (cubit.showTimer)
+              Positioned(
+                right: 0,
+                left: 0,
+                top: -29,
+                child: CustomCircularIndicator(
+                  onComplete: () {
                     cubit.goToNextQuestion();
-                  }
-                },
-                duration: 60,
+                  },
+                  duration: 60,
+                ),
               ),
-            ),
           ],
         );
       },

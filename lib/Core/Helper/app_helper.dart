@@ -29,3 +29,39 @@ abstract class AppHelper {
 
 
 }
+
+
+
+class AnswerScreenController {
+  late Map studentAnswers;
+  List<bool> answers = [];
+
+  void getStudentAnswers(Map studentAnswers) {
+    this.studentAnswers = studentAnswers;
+    compareAnswers();
+  }
+
+  void compareAnswers() {
+    answers.clear();
+    for (int i = 0; i < AppHelper.options.length; i++) {
+      bool an = studentAnswers["kListCorrectAnswer"][i] ==
+          AppHelper.options[i].correctAnswer;
+      answers.add(an);
+    }
+    print(answers);
+  }
+
+  void printList() {
+    print(studentAnswers);
+  }
+
+  int getCountCorrectAnswer() {
+    int count = 0;
+    for (bool i in answers) {
+     if( i == true) {
+       count++;
+     }
+    }
+    return count;
+  }
+}
